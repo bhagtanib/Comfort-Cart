@@ -1,0 +1,14 @@
+.searched-items{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    top: 32px;
+    left: 0;
+    padding: 10px;
+    gap: 10px;
+    width: 98%;
+}
+.searched-items a{
+    cursor: pointer;
+}

@@ -1,0 +1,124 @@
+.header {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background-color: #131921;
+  position: fixed;
+  width: 100%;
+  padding: 0 20px;
+  top: 0;
+  z-index: 100;
+}
+.header-container{
+  display: flex;
+  justify-content: space-around;
+
+}
+.amazon-icon {
+  width: 100px;
+  object-fit: contain;
+  margin: 0 20px;
+  margin-top: 18px;
+}
+.header-search,
+.header-search-mobile {
+  display: flex;
+  align-items: center;
+  border-radius: 24px;
+  flex: 1;
+}
+.header-search-box{
+  position: relative;
+  width: 100%;
+}
+.header-search-mobile {
+  display: none;
+}
+.header-search-input,
+.header-search-input-mobile {
+  height: 12px;
+  padding: 10px;
+  border: none;
+  width: 98%
+}
+.search-icon {
+  padding: 5px;
+  height: 22px !important;
+  background-color: #cd9042;
+}
+.header-nav {
+  display: flex;
+  justify-content: space-evenly;
+}
+.header-options,
+.header-options-profile-icon {
+  display: flex;
+  flex-direction: column;
+  margin: 0 10px;
+  color: white;
+  font-weight: 400;
+}
+.header-options > * {
+  margin: 2px 0;
+}
+.header-option-basket {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  color: white;
+  font-weight: 400;
+}
+
+.header-options-one {
+  font-size: 10px;
+}
+.header-options-two {
+  font-size: 13px;
+  font-weight: 800;
+}
+.header-options-two-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 800;
+}
+.header-options-profile-icon {
+  cursor: pointer;
+}
+@media only screen and (max-width: 600px) {
+  .header {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 ;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+  }
+  .header-options {
+    display: none;
+  }
+  .header-options-profile-icon {
+    display: flex;
+  }
+  .header-search {
+    display: none;
+  }
+  .header-search-mobile {
+    display: flex;
+    width: 100%;
+    border: 2px solid #131921;
+    border-radius: 0;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 50px;
+    z-index: 100;
+  }
+}
