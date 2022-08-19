@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
-import "./Login.css";
+import "../styles/Login.css";
 
 import { useNavigate } from "react-router-dom";
-import { auth, db } from "./firebase.js";
-import { useStateValue } from "./Stateprovider";
-import { setDoc,doc,collection } from "firebase/firestore";
-
+import { auth, db } from "../firebase.js";
+import { useStateValue } from "../Stateprovider";
+import { setDoc, doc } from "firebase/firestore";
 
 import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  signOut,
+  createUserWithEmailAndPassword
 } from "firebase/auth";
 
 const SignInPage = () => {
@@ -58,7 +56,6 @@ const SignInPage = () => {
         newUser: user,
       });
 
-
       //register user into database
 
       await setDoc(doc(db, "users", user.user.uid), {
@@ -72,7 +69,7 @@ const SignInPage = () => {
     }
   };
 
-// render the actual signIn page
+  // render the actual signIn page
 
   return (
     <div>

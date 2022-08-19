@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import "./Login.css";
+import "../styles/Login.css";
 import { Link } from "react-router-dom";
-import { auth} from "./firebase.js";
-// import { useStateValue } from "./Stateprovider";
+import { auth } from "../firebase.js";
+// import { useStateValue } from "../Stateprovider";
 
-import {
-  onAuthStateChanged
-} from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import SignInPage from "./SignInPage";
 import SingOutPage from "./SingOutPage";
 // import { addDoc, collection } from "firebase/firestore";
@@ -19,7 +17,6 @@ const Login = () => {
     });
   }, [user]);
 
-  
   // login code ends
   return (
     <div className="login-page">
@@ -33,7 +30,7 @@ const Login = () => {
           </Link>
         </div>
         {/* Sign In */}
-        {user? <SingOutPage /> :<SignInPage /> }
+        {user ? <SingOutPage /> : <SignInPage />}
       </div>
     </div>
   );

@@ -1,22 +1,20 @@
-import "./Header.css";
+import "../styles/Header.css";
 import { Person, Search, ShoppingBasket } from "@mui/icons-material/";
-import { useStateValue } from "./Stateprovider";
+import { useStateValue } from "../Stateprovider";
 import { Link } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import { auth, db } from "./firebase.js";
+import { auth, db } from "../firebase.js";
 import { useEffect, useMemo, useState } from "react";
 import { collection, getDocs, query } from "firebase/firestore";
 import { array } from "./searchData";
 import SearchedItem from "./SearchedItem";
-
-
 
 const Header = () => {
   //accessing context api
   const [{ basket }, dispatch] = useStateValue();
   const [searchResult, setSearchResult] = useState([]);
 
-  const [searchExpanded, setSearchExpanded] = useState(true)
+  const [searchExpanded, setSearchExpanded] = useState(true);
 
   const getdata = async () => {
     if (array.length === 0) {
@@ -24,7 +22,7 @@ const Header = () => {
       querySnapshot.forEach((doc) => {
         array.push(doc.data());
       });
-    } 
+    }
   };
 
   getdata();
@@ -33,29 +31,30 @@ const Header = () => {
     const searchWord = event.target.value;
     console.log(searchWord);
     if (searchWord === "") {
-      setSearchResult([])
-    }
-    else {
-    const filteredTitleArray = array.filter((value) => {
-      return value.title.toLowerCase().includes(searchWord.toLowerCase());
-    });
-    const filteredDescriptionArray = array.filter((value) => {
-      return value.description.toLowerCase().includes(searchWord.toLowerCase());
-    });
-    filteredTitleArray.map((item1) => {
-      let found = false;
-      for (var i = 0; i < filteredDescriptionArray.length; i++) {
-        if (item1.id === filteredDescriptionArray[i].id) {
-          found = true;
-          break;
+      setSearchResult([]);
+    } else {
+      const filteredTitleArray = array.filter((value) => {
+        return value.title.toLowerCase().includes(searchWord.toLowerCase());
+      });
+      const filteredDescriptionArray = array.filter((value) => {
+        return value.description
+          .toLowerCase()
+          .includes(searchWord.toLowerCase());
+      });
+      filteredTitleArray.map((item1) => {
+        let found = false;
+        for (var i = 0; i < filteredDescriptionArray.length; i++) {
+          if (item1.id === filteredDescriptionArray[i].id) {
+            found = true;
+            break;
+          }
         }
-      }
-      if (!found) {
-        filteredDescriptionArray.push(item1);
-      }
-    }); 
-    setSearchResult(filteredDescriptionArray);
-  }
+        if (!found) {
+          filteredDescriptionArray.push(item1);
+        }
+      });
+      setSearchResult(filteredDescriptionArray);
+    }
   };
 
   //State for current user

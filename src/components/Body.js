@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import "./Body.css";
+import "../styles/Body.css";
 import Product from "./Product";
-import { imageArray } from "./ImageArray";
+import { imageArray } from "../Data/ImageArray";
 
 const Body = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-const [imageLoaded, setImageLoaded] = React.useState(false);
+  const [imageLoaded, setImageLoaded] = React.useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-
       if (currentImageIndex === imageArray.length - 1) {
         setCurrentImageIndex(0);
       } else {
@@ -23,8 +22,8 @@ const [imageLoaded, setImageLoaded] = React.useState(false);
     <div className="body">
       <div className="body-poster">
         <img
-          className={`smooth-image image-${imageLoaded ? "visible" : "hidden"}`} 
-          onLoad={()=> setImageLoaded(true)}
+          className={`smooth-image image-${imageLoaded ? "visible" : "hidden"}`}
+          onLoad={() => setImageLoaded(true)}
           src={imageArray[currentImageIndex].image}
           alt="#"
         ></img>
@@ -79,7 +78,6 @@ const [imageLoaded, setImageLoaded] = React.useState(false);
           />
         </div>
       </div>
-
     </div>
   );
 };

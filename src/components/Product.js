@@ -1,9 +1,10 @@
-import "./Product.css";
-import { useStateValue } from "./Stateprovider";
-import { db, auth } from "./firebase";
+import "../styles/Product.css";
+import { useStateValue } from "../Stateprovider";
+import { db, auth } from "../firebase";
 // import { collection, getDocs, getFirestore, onSnapshot, addDoc, deleteDoc, doc,
 // query, where  } from "firebase/firestore";
 import { doc, getDoc, setDoc, updateDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 
 const Product = ({ id, title, price, image, rating }) => {
   const user = auth.currentUser;
@@ -66,17 +67,20 @@ const Product = ({ id, title, price, image, rating }) => {
   };
   return (
     <div className="product-container">
-      <div className="product-top">
-        <p>{title}</p>
-        <p>${price}</p>
-        <div className="product-rating">
-          {Array(rating)
-            .fill()
-            .map((_, i) => (
-              <p key= {i}>⭐</p>
-            ))}
+
+      <Link to={`/item/${id}`}>
+        <div className="product-top">
+          <p>{title}</p>
+          <p>${price}</p>
+          <div className="product-rating">
+            {Array(rating)
+              .fill()
+              .map((_, i) => (
+                <p key={i}>⭐</p>
+              ))}
+          </div>
         </div>
-      </div>
+      </Link>
       <div className="product-bottom">
         <img className="product-image" src={image} alt="#"></img>
         <button className="basket-button" onClick={addToBasket}>

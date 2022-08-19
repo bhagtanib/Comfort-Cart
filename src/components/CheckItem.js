@@ -1,17 +1,16 @@
-import React, { useEffect } from "react";
-import { useStateValue } from "./Stateprovider";
-import "./CheckItem.css";
+import React from "react";
+import { useStateValue } from "../Stateprovider";
+import "../styles/CheckItem.css";
 import { doc, deleteDoc } from "firebase/firestore";
-import { auth, db } from "./firebase";
+import { auth, db } from "../firebase";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { updateDoc } from "firebase/firestore";
 
 const CheckItem = ({ id, title, price, image, rating, quantity }) => {
-
   const user = auth.currentUser;
   const changeQuantity = async (change) => {
-  const newQuantity = change === "increase" ? quantity + 1 : quantity - 1;
+    const newQuantity = change === "increase" ? quantity + 1 : quantity - 1;
 
     dispatch({
       type: "REMOVE_FROM_BASKET",
@@ -86,7 +85,6 @@ const CheckItem = ({ id, title, price, image, rating, quantity }) => {
           />
         </div>
       </div>
-
     </div>
   );
 };

@@ -1,10 +1,11 @@
-import Body from "./Body";
-import Header from "./Header";
+import Body from "./components/Body";
+import Header from "./components/Header";
+import CheckoutPage from "./components/CheckoutPage";
+import Login from "./components/Login";
+import SearchedItem from "./components/SearchedItem";
+import ProductPage from "./components/ProductPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CheckoutPage from "./CheckoutPage";
-import Login from "./Login";
-import SearchedItem from "./SearchedItem";
-import ProductPage from "./ProductPage";
+import OrderPlace from "./components/OrderPlace";
 
 function App() {
   return (
@@ -17,6 +18,17 @@ function App() {
             <div className="App">
               <Header />
               <Body />
+              {/* Home */}
+            </div>
+          }
+        />
+        <Route
+          exact
+          path="/order"
+          element={
+            <div className="App">
+              <Header />
+              <OrderPlace />
               {/* Home */}
             </div>
           }
@@ -56,6 +68,7 @@ function App() {
               </>
             }
           />
+          {/* <Route exact path="/place-order" element={<Login />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

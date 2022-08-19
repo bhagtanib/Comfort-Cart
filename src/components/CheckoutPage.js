@@ -1,8 +1,7 @@
-import "./CheckoutPage.css";
-import { useStateValue } from "./Stateprovider";
+import "../styles/CheckoutPage.css";
+import { useStateValue } from "../Stateprovider";
 import CheckItem from "./CheckItem";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "./firebase";
+import { Link } from "react-router-dom";
 
 const CheckoutPage = () => {
   const [{ basket }] = useStateValue();
@@ -15,6 +14,9 @@ const CheckoutPage = () => {
     return total;
   };
   getBasketTotal();
+  const placeOrder = () => {
+    console.log("place order");
+  };
   return (
     <div className="checkoutPage">
       <div className="checkout-left">
@@ -51,7 +53,11 @@ const CheckoutPage = () => {
             <button type="radio" className="gift-button-check"></button>
             <p>This is a gift</p>
           </div>
-          <button className="basket-button"> Proceed to checkout </button>
+          <Link to="/order">
+            <button className="basket-button" onClick={placeOrder}>
+              Proceed to checkout{" "}
+            </button>
+          </Link>
         </div>
       </div>
     </div>
