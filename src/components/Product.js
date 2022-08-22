@@ -67,8 +67,7 @@ const Product = ({ id, title, price, image, rating }) => {
   };
   return (
     <div className="product-container">
-
-      <Link to={`/item/${id}`}>
+      <Link to={`/item/${id}`} style={{ textDecoration: "none", color: "black"}}>
         <div className="product-top">
           <p>{title}</p>
           <p>${price}</p>
