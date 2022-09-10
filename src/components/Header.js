@@ -4,17 +4,18 @@ import { useStateValue } from "../Stateprovider";
 import { Link } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, db } from "../firebase.js";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { collection, getDocs, query } from "firebase/firestore";
 import { array } from "./searchData";
 import SearchedItem from "./SearchedItem";
 
+// clear search result
+export const clearSearch = () => {};
 const Header = () => {
   //accessing context api
   const [{ basket }, dispatch] = useStateValue();
   const [searchResult, setSearchResult] = useState([]);
 
-  const [searchExpanded, setSearchExpanded] = useState(true);
 
   const getdata = async () => {
     if (array.length === 0) {
@@ -27,6 +28,7 @@ const Header = () => {
 
   getdata();
 
+  // get the search result
   const handleSearch = (event) => {
     const searchWord = event.target.value;
     console.log(searchWord);
@@ -133,7 +135,7 @@ const Header = () => {
               placeholder="Search..."
               onChange={handleSearch}
             ></input>
-            <SearchedItem array={searchResult} />
+            <SearchedItem className="header-search-list" array={searchResult} />
           </div>
           <Search className="search-icon" />
         </div>

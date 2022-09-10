@@ -6,6 +6,8 @@ import SearchedItem from "./components/SearchedItem";
 import ProductPage from "./components/ProductPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import OrderPlace from "./components/OrderPlace";
+import Footer from "./components/Footer";
+import "./App.css"
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
             <div className="App">
               <Header />
               <Body />
+              <Footer />
+
               {/* Home */}
             </div>
           }
@@ -29,6 +33,8 @@ function App() {
             <div className="App">
               <Header />
               <OrderPlace />
+              <Footer />
+
               {/* Home */}
             </div>
           }
@@ -39,10 +45,11 @@ function App() {
           exact
           path="/test"
           element={
-            <>
+            <div className="App">
               <Header />
               <SearchedItem />
-            </>
+              <Footer />
+            </div>
           }
         />
 
@@ -52,20 +59,22 @@ function App() {
           exact
           path="checkout"
           element={
-            <>
+            <div className="App">
               <Header />
               <CheckoutPage />
-            </>
+              <Footer />
+            </div>
           }
         />
         <Route path="/item">
           <Route
             path=":id"
             element={
-              <>
+              <div className="App">
                 <Header />
                 <ProductPage />
-              </>
+                <Footer />
+              </div>
             }
           />
           {/* <Route exact path="/place-order" element={<Login />} /> */}
