@@ -1,1 +1,1 @@
-Please visit https://clone-eb298.web.app/
+Please visit https://comfortcart.web.app/
