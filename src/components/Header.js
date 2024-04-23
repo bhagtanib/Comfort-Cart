@@ -122,7 +122,7 @@ const Header = () => {
           <img
             className="amazon-icon"
             alt="#"
-            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
+            src="https://img.icons8.com/parakeet-line/144/FFFFFF/add-shopping-cart.png"
           />
         </Link>
 

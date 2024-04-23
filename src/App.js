@@ -20,7 +20,7 @@ function App() {
             <div className="App">
               <Header />
               <Body />
-              <Footer />
+              {/* <Footer /> */}
 
               {/* Home */}
             </div>
@@ -33,7 +33,7 @@ function App() {
             <div className="App">
               <Header />
               <OrderPlace />
-              <Footer />
+              {/* <Footer /> */}
 
               {/* Home */}
             </div>
@@ -48,7 +48,7 @@ function App() {
             <div className="App">
               <Header />
               <SearchedItem />
-              <Footer />
+              {/* <Footer /> */}
             </div>
           }
         />
@@ -62,7 +62,7 @@ function App() {
             <div className="App">
               <Header />
               <CheckoutPage />
-              <Footer />
+              {/* <Footer /> */}
             </div>
           }
         />
@@ -73,7 +73,7 @@ function App() {
               <div className="App">
                 <Header />
                 <ProductPage />
-                <Footer />
+                {/* <Footer /> */}
               </div>
             }
           />
